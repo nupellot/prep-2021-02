@@ -1,4 +1,8 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "utils.h"
+#include "isPrime.h"
+#include "print.h"
 
 #define ERR_ARGS_COUNT (-1)
 #define ERR_WRONG_FLG (-2)
@@ -6,6 +10,7 @@
 #define TST_FOO_FIX     1
 #define TST_FOO_IMPL    2
 #define TST_MOD_IMPL    3
+#define TST_PRINT_NUM   4
 
 
 /* NOTE(stitaevskiy):
@@ -24,6 +29,13 @@
  * */
 
 int main(int argc, const char** argv) {
+		printing(100, 1);
+		// for (int i = 0; i < 100; i++) {
+		// 	int res = isPrime(i);
+		// 	printf("%d %d\n", i, res);
+		// }
+		// int res = custom_pow(5, 3);
+		// printf("%d", res);
     if (argc < 3) {
         return ERR_ARGS_COUNT;
     }
@@ -36,27 +48,29 @@ int main(int argc, const char** argv) {
         case TST_FOO_FIX: {
             int to = atoi(data);
             size_t ticks_count = timer_from(to);
-            printf("%d\n", ticks_count);
+            printf("%zu\n", ticks_count);
             break;
         }
         case TST_FOO_IMPL: {
-            if (argc = 4) {
-                // int base = atoi(data);
-                // int pow =  atoi(argv[3]);
-                // int res = custom_pow(base, pow);    // TODO: Implement me
+            if (argc == 4) {
+                int base = atoi(data);
+                int pow =  atoi(argv[3]);
+                int res = custom_pow(base, pow);
 
-                // printf("%i\n", res);
+                printf("%i\n", res);
             } else {
                 return ERR_ARGS_COUNT;
             }
         }
         case TST_MOD_IMPL: {
-            // int num = atoi(data);
+            int num = atoi(data);
 
-            // TODO: Print to stdout `1` if `num` is prime number and `0` otherwise
-            // This function MUST be implemented in
-            // a separate C-module (not in `main` or `utils` module)
+						int res = isPrime(num);
+						printf("%d", res);
         }
+				case TST_PRINT_NUM: {
+						
+				}
         default: {
             return ERR_WRONG_FLG;
         }
