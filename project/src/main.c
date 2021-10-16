@@ -29,13 +29,6 @@
  * */
 
 int main(int argc, const char** argv) {
-		printing(100, 1);
-		// for (int i = 0; i < 100; i++) {
-		// 	int res = isPrime(i);
-		// 	printf("%d %d\n", i, res);
-		// }
-		// int res = custom_pow(5, 3);
-		// printf("%d", res);
     if (argc < 3) {
         return ERR_ARGS_COUNT;
     }
@@ -61,18 +54,22 @@ int main(int argc, const char** argv) {
             } else {
                 return ERR_ARGS_COUNT;
             }
+	break;
         }
         case TST_MOD_IMPL: {
             int num = atoi(data);
-
 						int res = isPrime(num);
 						printf("%d", res);
+	break;
         }
-				case TST_PRINT_NUM: {
-						
-				}
+	case TST_PRINT_NUM: {
+		int num = atoi(data);
+		printing(num, 1);
+		break;
+	}
         default: {
             return ERR_WRONG_FLG;
         }
     }
 }
+

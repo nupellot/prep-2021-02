@@ -1,1 +1,7 @@
+#ifndef PROJECT_INCLUDE_ISPRIME_H_
+#define PROJECT_INCLUDE_ISPRIME_H_
+
 int isPrime(int n);
+
+#endif   // PROJECT_INCLUDE_ISPRIME_H_
+
